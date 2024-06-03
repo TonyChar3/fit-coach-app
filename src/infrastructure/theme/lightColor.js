@@ -1,4 +1,4 @@
-export const colors = {
+export const lightTheme = {
     brand: {
       primary: "#2182BD",
       secondary: "#5282BD",

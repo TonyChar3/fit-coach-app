@@ -1,5 +1,5 @@
 import React from 'react';
-import { StatusBar } from 'expo-status-bar';
+import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import {
   useFonts as useSourcePro,
@@ -7,6 +7,8 @@ import {
   SourceSansPro_700Bold,
   SourceSansPro_300Light
 } from "@expo-google-fonts/source-sans-pro";
+import { ThemeProvider } from 'styled-components';
+import { theme } from "./src/infrastructure/theme";
 
 export default function App() {
   const [sourceSansPro] = useSourcePro({
@@ -16,14 +18,18 @@ export default function App() {
   });
 
   if (!sourceSansPro) {
-    return null;
+    return null; 
   }
 
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+    <ThemeProvider theme={theme}>
+      <View style={styles.container}>
+        <Text>Open up App.js to start working on your app!</Text>
+      </View>
+    </ThemeProvider>
+    <ExpoStatusBar style="auto" />
+    </>
   );
 }
 
