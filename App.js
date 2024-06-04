@@ -1,34 +1,33 @@
-import React from 'react';
-import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { StatusBar as ExpoStatusBar } from "expo-status-bar";
+import styled from "styled-components";
+import { StyleSheet, Text, View } from "react-native";
 import {
   useFonts as useSourcePro,
   SourceSansPro_400Regular,
   SourceSansPro_700Bold,
-  SourceSansPro_300Light
+  SourceSansPro_300Light,
 } from "@expo-google-fonts/source-sans-pro";
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from "styled-components";
 import { theme } from "./src/infrastructure/theme";
+
+import { Navigation } from "./src/infrastructure/navigation";
 
 export default function App() {
   const [sourceSansPro] = useSourcePro({
     SourceSansPro_400Regular,
     SourceSansPro_700Bold,
-    SourceSansPro_300Light
+    SourceSansPro_300Light,
   });
 
   if (!sourceSansPro) {
-    return null; 
+    return null;
   }
 
   return (
     <>
-    <ThemeProvider theme={theme}>
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
-    </ThemeProvider>
-    <ExpoStatusBar style="auto" />
+      <Navigation />
+      <ExpoStatusBar style="auto" />
     </>
   );
 }
@@ -36,9 +35,9 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     fontFamily: "SourceSansPro_700Bold",
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
 });

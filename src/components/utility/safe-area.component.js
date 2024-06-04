@@ -6,7 +6,6 @@ const statusBarHeight = Platform.OS === "android" ? StatusBar.currentHeight : 0;
 export const SafeArea = styled(SafeAreaView)`
   flex: 1;
   margin-top: ${statusBarHeight}px;
-  background-color: white;
 `;
 
 // ${(props) => props.theme.colors.bg.primary}
